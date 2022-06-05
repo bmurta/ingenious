@@ -96,4 +96,22 @@ Cypress.Commands.add("checkPriceSorting", () => {
   cy.get('[class="inventory_item_name"]')
     .eq(5)
     .should("have.text", "Sauce Labs Fleece Jacket");
-})
+});
+
+Cypress.Commands.add("delayedUsersQuery", (delayTime) => {
+  //Parameterized command allowing to set a delay time for users request
+  cy.request({
+    method: "GET",
+    url: `https://reqres.in/api/users?delay=${delayTime}`,
+  });
+});
+
+Cypress.Commands.add("userDetails", (userid) => {
+  //Parameterized command allowing to set a delay time for users request
+  cy.request({
+    method: "GET",
+    url: `https://reqres.in/api/users/${userid}`,
+  }).then((response) => {
+    expect(response.status).to.be.eq(200); //Validates that the response code is 200;
+  });
+});

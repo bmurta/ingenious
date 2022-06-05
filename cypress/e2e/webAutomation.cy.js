@@ -1,5 +1,5 @@
 // <reference types="Cypress" />
-describe("checkPurchase", () => {
+describe("Web Automation tests", () => {
   beforeEach(() => {
     cy.login("standard_user", "secret_sauce"); //Logs in as a standard user
   });
@@ -25,7 +25,7 @@ describe("checkPurchase", () => {
     cy.get('[data-test="lastName"]').type("Murta");
     cy.get('[data-test="postalCode"]').type("90210");
     cy.get('[data-test="continue"]').click();
-    cy.get(".summary_subtotal_label").then((subtotal) => {
+    cy.get(".summary_subtotal_label").then(subtotal => {
       expect(subtotal[0].innerText).to.be.eq("Item total: $29.99"); //Verifies the subtotal to be $29.99
     });
     cy.get('[data-test="finish"]').click();
