@@ -18,11 +18,11 @@ jobs:
     - name: Use Node.js 10
       uses: actions/setup-node@v3
       with:
-        node-version: '10'
+        node-version: '12'
 
     - name: Run Cypress
       run: |
-        npm install
+        npm ci
         npm run cypress
       env:
         CI: true
