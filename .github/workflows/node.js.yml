@@ -10,22 +10,31 @@ on:
     branches: [ "master" ]
 
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Run cypress
+
+    - name: Use Node.js 10
       uses: actions/setup-node@v3
       with:
-        node-version: 12.x
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run cypress
-    env:
+        node-version: '10'
+
+    - name: Run Cypress
+      run: |
+        npm install
+        npm run cypress
+      env:
         CI: true
 
-    - name: Upload artifact web automation
-    - uses: actions/upload-artifact@master
+    - name: Upload artifact Web automation
+      uses: actions/upload-artifact@master
       with:
         name: webAutomation.cy.js.mp4
-        path: /home/runner/work/cypress/screenshots/webAutomation.cy.js
+        path: /home/runner/work/cypress/videos/webAutomation.cy.js.mp4
+
+    - name: Upload artifact API automation
+      uses: actions/upload-artifact@master
+      with:
+        name: apiAutomation.cy.js.mp4
+        path: /home/runner/work/cypress/videos/apiAutomation.cy.js.mp4
