@@ -16,6 +16,8 @@ While not the most versatile tool for the job, it also allows for API and integr
 
 To run the test suite, an environment running [nodejs](https://nodejs.org/en/) is required.
 
+Test suites are located in the folder `cypress\e2e`, and helper functions are located in `cypress\support\commands.js`
+
 Cypress will automatically record videos and take screenshots upon test execution.
 
 ## How to execute it
