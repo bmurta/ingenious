@@ -30,3 +30,5 @@ Cypress will automatically record videos and take screenshots upon test executio
 To develop new test suites, create a file with the `.cy.js` extension inside `cypress\e2e` folder. 
 
 On the `cypress\support\commands.js` file, you can create cypress functions, which can be used to repeat simple tasks shorten suite lenghts. You can call those functions during any suite using `cy.`
+
+As a bonus, i also included a CI implementation on Github Action, which can be managed used the YAML file at `.github\workflows\node.js.yml`, and can be seen at [https://github.com/bmurta/ingenious/actions](https://github.com/bmurta/ingenious/actions).
